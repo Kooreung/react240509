@@ -16,17 +16,7 @@ function MyComp() {
 
 function App() {
   // component 사용 시 종료 태그를 생략할 수 없음
-  return (
-    <>
-      <div>
-        <h1>Hello React</h1>
-        <h2>하이 리액트</h2>
-        <h3>안녕 리액트</h3>
-        <MyComponent />
-        <MyComp />
-      </div>
-    </>
-  );
+  return <div>hello react</div>;
 }
 
 export default App;
