@@ -1,27 +1,22 @@
 import React from "react";
 
 function App(props) {
-  const obj = {
-    age: 30,
-    name: "john doe",
-    email: "john@example.com",
-    password: "1234567890",
+  const son = {
+    firstName: "손",
+    lastName: "흥민",
+    address: "서울",
+    country: "대한민국",
+    married: false,
   };
 
   return (
     <div>
-      <div>
-        {obj.name} 의 나이는 {obj.age} 살
-      </div>
-      <div>
-        {obj.name} 의 이메일 주소는 {obj.email} 이며, 비밀번호는 {obj.password}{" "}
-        이다.
-      </div>
       <ul>
-        <li>age : {obj.age}</li>
-        <li>name : {obj.name}</li>
-        <li>email : {obj.email}</li>
-        <li>password : {obj.password}</li>
+        <li>성 : {son.firstName}</li>
+        <li>이름 : {son.lastName}</li>
+        <li>주소 : {son.address}</li>
+        <li>국가 : {son.country}</li>
+        <li>결혼여부 : {son.married ? "기혼" : "미혼"}</li>
       </ul>
     </div>
   );
