@@ -1,28 +1,28 @@
 function App() {
-  const a = 7;
-  const b = 3;
+  // &&, ||
 
-  const c = a > 10 && b > 0;
-  const d = a < 10 && b > 0;
+  // falsy(false 같은)
+  //  : false, 0, "", null, undefined
 
-  console.log("c", c);
-  console.log("d", d);
+  const a = "undefined";
 
-  const e = a > 10 || b > 0;
-  const f = a < 10 || b > 10;
+  if (a) {
+    console.log("a는 참이다");
+  } else {
+    console.log("a는 거짓이다");
+  }
 
-  console.log("e", e);
-  console.log("f", f);
+  // truthy(true 같은) : falsy 가 아니면 truthy
 
-  // && (and .. 그러면) : 왼쪽 항이 true 면 오른쪽 값
-  const g = a < 10 && "hello";
-  const h = a < 5 && "hi";
-  console.log("g", g);
-  console.log("h", h);
+  // &&, || 와 조합
 
-  // || (or .. 아니면) : 왼쪽 항이 false 면 오른쪽 값
-  const i = a < 10 || "greeting";
-  const j = a < 5 || "안녕";
+  let b = 0;
+
+  let c = b && "값이 있음";
+  console.log("c", c); // 0
+
+  let d = b || "값이 없음";
+  console.log("d", d); // "값이 없음"
 
   return <div></div>;
 }
