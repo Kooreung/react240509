@@ -1,41 +1,32 @@
-function MyComponent() {
-  // 최상위 컴포넌트 사용하지 않고 싶을 때 -> fragment <> </> 사용
-
-  return;
-  <>
-    <p>Lorem ipsum.</p>
-    <p>Eligendi, vel?</p>
-  </>;
-}
-
-function MyComp() {
-  // Return 바로 이전 최상위 Component 는 1개로 작성
-  return (
-    <div>
-      <p>Lorem ipsum.</p>
-      <p>Accusantium, fuga?</p>
-    </div>
-  );
-}
-
-function MyTag() {
-  // 여러 줄의 jsx 코드를 쓸 때 () 사용
-  return (
-    <div>
-      hello tag
-      <p>Lorem ipsum.</p>
-      <p>Accusamus, natus!</p>
-    </div>
-  );
-}
-
 function App() {
+  const myTag = <h1>hello</h1>;
+  const val1 = "흥민";
+  const val2 = 3.14;
+  const val3 = 321;
+  const val4 = true;
+  const val5 = false;
+  const val6 = null;
+  const val7 = undefined;
+  const val8 = [2, 3];
+  const val9 = { age: 3, name: "강인" };
+
+  // {} : jsx 내에서 js 코드 사용
   return (
-    <div>
-      <MyTag />
-      <MyComp />
-      <MyComponent />
-    </div>
+    <>
+      <div>{myTag}</div>
+      <div>{val1}</div>
+      <div>{val2}</div>
+      <div>{val3}</div>
+      <div>{val4}</div>
+      <div>{val5}</div>
+      <div>{val6}</div>
+      <div>{val7}</div>
+      <div>{val8}</div>
+      {/*객체는 오류*/}
+      {/*프로퍼티에 접근해서 사용*/}
+      <div>{val9.name}</div>
+      <div>{val9.age}</div>
+    </>
   );
 }
 
