@@ -13,6 +13,9 @@ function App() {
   // {} : jsx 내에서 js 코드 사용
   return (
     <>
+      <p>
+        {val1} 의 연봉은 {val3} 억원이다.
+      </p>
       <div>{myTag}</div>
       <div>{val1}</div>
       <div>{val2}</div>
