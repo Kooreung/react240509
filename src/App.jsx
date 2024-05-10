@@ -1,46 +1,23 @@
 import React from "react";
 
-function MyButton(props) {
-  // props : properties
-  // props : { name : "클릭3" }
+function MyComp(props) {
+  console.log(props);
   return (
-    <button
-      style={{
-        padding: "10px",
-        backgroundColor: "lightskyblue",
-        color: "black",
-      }}
-    >
-      {props.name}
-    </button>
+    <div>
+      <p>name : {props.name}</p>
+      <p>age : {props.age}</p>
+      <p>address : {props.address}</p>
+      <p>city : {props.city}</p>
+      <p>country : {props.country}</p>
+    </div>
   );
 }
 
 function App(props) {
   return (
-    <div>
-      <button
-        style={{
-          padding: "10px",
-          backgroundColor: "deepskyblue",
-          color: "white",
-        }}
-      >
-        클릭1
-      </button>
-      <br />
-      <button
-        style={{
-          padding: "10px",
-          backgroundColor: "deepskyblue",
-          color: "white",
-        }}
-      >
-        클릭2
-      </button>
-      <br />
-      <MyButton name="클릭3" />
-      <MyButton name="클릭4" />
+    <div id="">
+      <MyComp name="son" age={33} address="seoul" />
+      <MyComp city="busan" country="USA" />
     </div>
   );
 }
