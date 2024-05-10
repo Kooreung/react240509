@@ -1,16 +1,22 @@
 import React from "react";
 
 function App(props) {
+  // style props
+  // react 에서는 style 에 객체를 넣어야 한다.
+  // lowerCamelCase
   return (
     <div>
-      <button
-        onClick={() => console.log("clicked")}
-        onMouseEnter={() => console.log("mouse Entered")}
-        onMouseLeave={() => console.log("mouse Leaved")}
+      <div
+        style={{
+          color: "white",
+          backgroundColor: "black",
+          padding: "2rem",
+          border: "2px dotted red",
+          textAlign: "center",
+        }}
       >
-        클릭1
-      </button>
-      <input type="text" onChange={() => console.log("changed")} />
+        Lorem ipsum dolor.
+      </div>
     </div>
   );
 }
