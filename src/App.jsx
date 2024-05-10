@@ -1,20 +1,17 @@
 import React from "react";
 
-function MyComp(props) {
+function MyComp({ name, age, someProp, otherProp }) {
+  console.log(someProp);
+  // 이름만 넘어오는 props 의 값은 true
+  console.log(otherProp);
+
   return <div></div>;
 }
 
 function App(props) {
-  // props 의 이름은 lowerCamelCase
-  // 예약어 사용 금지
   return (
     <div>
-      <label htmlFor="input1"></label>
-      <input id="input1" type="text" />
-      {/* js 의 for 와 겹치기 때문에 htmlFor 로 변경*/}
-      <p className="error note">Lorem</p>
-      {/* js 의 class 와 겹치기 때문에 className 으로 변경*/}
-      <MyComp number={3} pageNumber={1} />
+      <MyComp name={"son"} age={30} someProp otherProp={true} />
     </div>
   );
 }
