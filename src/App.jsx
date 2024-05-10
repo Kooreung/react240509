@@ -22,13 +22,4 @@ function App(props) {
   );
 }
 
-function App(props) {
-  return (
-    <div>
-      <MyElem name="son" age={33} />
-      <MyComp city="seoul" country="korea" price={500} />
-    </div>
-  );
-}
-
 export default App;
