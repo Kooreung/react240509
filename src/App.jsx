@@ -14,12 +14,28 @@ function App(props) {
   console.log(x, y, z);
 
   const b = ["pizza", 3.14, "lunch"];
-
   const [x1, x2, x3] = b;
 
   console.log("x1", x1);
   console.log("x2", x2);
   console.log("x3", x3);
+
+  const c = ["son", "lee"];
+  const [a1] = c;
+  console.log(a1);
+
+  const [b1, b2, b3] = c;
+  console.log(b3); // undefined
+
+  const [c1, c2, c3 = "kim"] = c;
+  console.log(c1);
+  console.log(c2);
+  console.log(c3);
+
+  const d = ["name", "email", "phone"];
+
+  const [d1, d2, d3, d4 = "city"] = d;
+  console.log(d1, d2, d3, d4);
 
   return <div></div>;
 }
