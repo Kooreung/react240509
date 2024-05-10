@@ -5,22 +5,16 @@ function MyComp(props) {
 }
 
 function App(props) {
+  // props 의 이름은 lowerCamelCase
+  // 예약어 사용 금지
   return (
     <div>
-      {/* props 값은 Javascript 값의 타입을 쓸 수 있다. */}
-      {/* 항상 {} 중괄호가 필요하다. */}
-      {/* String 타입만 중괄호 생략이 가능하다. */}
-      <MyComp
-        name={"son"}
-        age={3.14}
-        address={{ city: "seoul", country: "us" }}
-        foods={["pizza", "coffee"]}
-        married={true}
-        action={function () {
-          console.log("action");
-        }}
-        someAction={() => console.log("someAction")}
-      />
+      <label htmlFor="input1"></label>
+      <input id="input1" type="text" />
+      {/* js 의 for 와 겹치기 때문에 htmlFor 로 변경*/}
+      <p className="error note">Lorem</p>
+      {/* js 의 class 와 겹치기 때문에 className 으로 변경*/}
+      <MyComp number={3} pageNumber={1} />
     </div>
   );
 }
