@@ -1,38 +1,29 @@
 import React from "react";
 
 function App(props) {
-  // 이름있는 함수
-  function action1() {
-    console.log("action1");
-  }
-
-  // 이름 없는 함수
-  const action2 = function () {
-    console.log("anonymous action");
+  // destructuring assignment
+  // 구조 분해 할당
+  // object({} , []) 를 분해해서 할당
+  const a = {
+    name: "son",
+    age: 33,
   };
 
-  // arrow function
-  const action3 = () => console.log("anonymous action2");
+  const aName = a.name;
+  const aAge = a.age;
 
-  return (
-    <div>
-      <button onClick={action1}>클릭1</button>
-      <br />
-      <button onClick={action2}>클릭2</button>
-      <br />
-      <button
-        onClick={function () {
-          console.log("anonymous action 2");
-        }}
-      >
-        클릭3
-      </button>
-      <br />
-      <button onClick={action3}>클릭4</button>
-      <br />
-      <button onClick={() => console.log("arrow function")}>클릭5</button>
-    </div>
-  );
+  console.log("aName", aName);
+  console.log("aAge", aAge);
+
+  const { name: bName, age: bAge } = a;
+
+  console.log("bName", bName);
+  console.log("age", bAge);
+
+  // 오른쪽 항 객체의 Property 명과 할당 받는 변수명이 같으면 변수명 생략 가능
+  const { name: name, age: age } = a;
+
+  return <div></div>;
 }
 
 export default App;
