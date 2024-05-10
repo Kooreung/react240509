@@ -1,41 +1,35 @@
 import React from "react";
 
 function App(props) {
-  // [] : 배열, 원소를 순서대로 저장한 객체
-  const a = [6, 7, 8];
-  const v1 = a[0];
-  const v2 = a[1];
-  const v3 = a[2];
+  // 나머지 모두 (rest property)
+  // ...변수명
+  const a = {
+    name: "john",
+    email: "john@example.com",
+    password: "password",
+    address: "gangnam",
+  };
 
-  console.log(v1, v2, v3);
+  const { name, email, ...b } = a;
 
-  const [x, y, z] = a;
+  console.log(name);
+  console.log(email);
+  console.log(b.password);
+  console.log(b.address);
 
-  console.log(x, y, z);
+  const c = {
+    city: "seoul",
+    country: "US",
+    price: 500,
+    category: "food",
+  };
 
-  const b = ["pizza", 3.14, "lunch"];
-  const [x1, x2, x3] = b;
+  const { price, ...d } = c;
 
-  console.log("x1", x1);
-  console.log("x2", x2);
-  console.log("x3", x3);
-
-  const c = ["son", "lee"];
-  const [a1] = c;
-  console.log(a1);
-
-  const [b1, b2, b3] = c;
-  console.log(b3); // undefined
-
-  const [c1, c2, c3 = "kim"] = c;
-  console.log(c1);
-  console.log(c2);
-  console.log(c3);
-
-  const d = ["name", "email", "phone"];
-
-  const [d1, d2, d3, d4 = "city"] = d;
-  console.log(d1, d2, d3, d4);
+  console.log(price);
+  console.log(d.city);
+  console.log(d.country);
+  console.log(d.category);
 
   return <div></div>;
 }
