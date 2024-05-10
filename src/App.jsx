@@ -1,48 +1,31 @@
 import React from "react";
 
 function App(props) {
-  // 1. 이름 있는 함수
-  function action(param1, param2) {
-    return 1;
+  // 이름있는 함수
+  function action1() {
+    console.log("action1");
   }
 
-  // 2. 이름 없는 함수
-  const a = function (param1, param2) {
-    return 2;
+  // 이름 없는 함수
+  const action2 = function () {
+    console.log("anonymous action");
   };
 
-  // 3. arrow function
-  // 3-1. parameter 가 여러 개, 명령문이 여러 개
-  const b = (param1, param2, param3) => {
-    // 명령문들
-  };
-
-  // 3-2. parameter 가 없고 명령문이 여러 개
-  const c = () => {
-    // 명령문들
-  };
-
-  // 3-3. parameter 가 한 개, 명령문이 여러 개
-  const d = (param1) => {
-    // 명령문들
-  };
-
-  // 3-4. 명령문이 하나일 때
-  const e = () => {
-    console.log("명령문이 하나인 arrow function");
-  };
-  const f = () => console.log("명령문이 하나인 arrow function");
-  const g = () => "중괄호 생략 시 값이 리턴 됨";
-  const h = () => {
-    "중괄호 생략 시 값이 리턴 됨";
-  };
-
-  // 함수 실행
-  action(null, null);
-  a(null, null);
-  b(null, null, null);
-
-  return <div></div>;
+  return (
+    <div>
+      <button onClick={action1}>클릭1</button>
+      <br />
+      <button onClick={action2}>클릭2</button>
+      <br />
+      <button
+        onClick={function () {
+          console.log("anonymous action 2");
+        }}
+      >
+        클릭3
+      </button>
+    </div>
+  );
 }
 
 export default App;
