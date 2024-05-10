@@ -20,6 +20,16 @@ function App(props) {
   console.log(b[0]);
   console.log(a[0]);
 
+  const d = ["pizza", "son", 77];
+  const e = d;
+  const [...f] = d;
+
+  e[2] = 88;
+
+  console.log(d);
+  console.log(e);
+  console.log(f);
+
   return <div></div>;
 }
 
