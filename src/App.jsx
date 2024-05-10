@@ -1,35 +1,45 @@
 import React from "react";
 
 function App(props) {
-  // 나머지 모두 (rest property)
-  // ...변수명
   const a = {
-    name: "john",
-    email: "john@example.com",
-    password: "password",
-    address: "gangnam",
+    name: "son",
+    age: 33,
+    city: "london",
   };
 
-  const { name, email, ...b } = a;
-
-  console.log(name);
-  console.log(email);
-  console.log(b.password);
-  console.log(b.address);
+  const b = a; // a 와 b 는 같은 객체를 참조
+  b.age = 44;
+  console.log(a.age); // 44
+  console.log(b.age); // 44
 
   const c = {
-    city: "seoul",
-    country: "US",
-    price: 500,
-    category: "food",
+    name: a.name,
+    age: a.age,
+    city: a.city,
   };
+  c.age = 55;
+  console.log(c.age); // 55
+  console.log(a.age); // 44
 
-  const { price, ...d } = c;
+  // 나머지 값 복사를 활용하여
+  // const c 처럼 일일히 같은 객체 만들 필요가 없다.
+  const { ...d } = a;
+  d.age = 55;
+  console.log(d.age); // 55
+  console.log(a.age); // 44
 
-  console.log(price);
-  console.log(d.city);
-  console.log(d.country);
-  console.log(d.category);
+  const e = {
+    name: "lee",
+    country: "korea",
+    team: "paris",
+    salary: 700,
+    city: "seoul",
+  };
+  const { ...f } = e;
+
+  e.city = "busan";
+  console.log(e);
+  console.log(f);
 
   return <div></div>;
 }
