@@ -1,22 +1,21 @@
 import React from "react";
 
+function MyComp({ color }) {
+  return (
+    <div style={{ color: color }}>
+      <h1>Lorem.</h1>
+      <p>Lorem ipsum dolor.</p>
+    </div>
+  );
+}
+
 function App(props) {
-  // style props
-  // react 에서는 style 에 객체를 넣어야 한다.
-  // lowerCamelCase
   return (
     <div>
-      <div
-        style={{
-          color: "white",
-          backgroundColor: "black",
-          padding: "2rem",
-          border: "2px dotted red",
-          textAlign: "center",
-        }}
-      >
-        Lorem ipsum dolor.
-      </div>
+      {/* red color */}
+      <MyComp color={"red"} />
+      {/* blue color */}
+      <MyComp color={"blue"} />
     </div>
   );
 }
