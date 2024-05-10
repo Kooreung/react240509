@@ -1,36 +1,25 @@
 import React from "react";
 
 function App(props) {
-  // destructuring assignment
-  const person = {
-    name: "John",
-    email: "john@example.com",
-    address: "127.0.0.1",
-  };
-  // 모든 값을 할당 할 필요는 없다.
-  const { name, email } = person;
-  console.log(name);
-  console.log(email);
+  // [] : 배열, 원소를 순서대로 저장한 객체
+  const a = [6, 7, 8];
+  const v1 = a[0];
+  const v2 = a[1];
+  const v3 = a[2];
 
-  const car = {
-    model: "genesis",
-    company: "hyundai",
-    price: 4000,
-  };
-  // 객체에 없는 값을 할당하면 undefined
-  const { model, company, color } = car;
-  console.log(color);
+  console.log(v1, v2, v3);
 
-  const house = {
-    city: "seoul",
-    country: "USA",
-  };
+  const [x, y, z] = a;
 
-  // 객체에 없는 기본 값 할당
-  const { city, country, area = 987 } = house;
-  console.log(city);
-  console.log(country);
-  console.log(area);
+  console.log(x, y, z);
+
+  const b = ["pizza", 3.14, "lunch"];
+
+  const [x1, x2, x3] = b;
+
+  console.log("x1", x1);
+  console.log("x2", x2);
+  console.log("x3", x3);
 
   return <div></div>;
 }
