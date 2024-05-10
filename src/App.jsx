@@ -29,6 +29,26 @@ function App(props) {
   console.log("a.address.city", a.address.city); // busan
   console.log("c.address.city", c.address.city); // london
 
+  const d = {
+    company: {
+      name: "apple",
+      location: "New York",
+    },
+    name: "iphone",
+    price: 300,
+  };
+
+  const { ...e } = d;
+  const { ...company } = d.company;
+  e.company = company;
+  e.name = "galaxy";
+  e.company.name = "samsung";
+
+  console.log("d.name", d.name); // iphone
+  console.log("d.company.name", d.company.name); // apple
+  console.log("e.name", e.name);
+  console.log("e.company.name", e.company.name);
+
   return <div></div>;
 }
 
