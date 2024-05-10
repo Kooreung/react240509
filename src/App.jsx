@@ -1,32 +1,13 @@
-import React from "react";
 
-function MyComp({ headStyle, bodyStyle }) {
+function App() {
+
   return (
-    <div>
-      <h1 style={headStyle}>Lorem.</h1>
-      <p style={bodyStyle}>Lorem ipsum dolor.</p>
-    </div>
-  );
+    <>
+      <div>
+          <h1>Hello React</h1>
+      </div>
+    </>
+  )
 }
 
-function App(props) {
-  return (
-    <div>
-      <MyComp
-        headStyle={{
-          padding: "5px",
-          border: "1px solid lightgray",
-          color: "skyblue",
-        }}
-        bodyStyle={{
-          margin: "5px",
-          border: "1px solid skyblue",
-          color: "red",
-          textAlign: "center",
-        }}
-      />
-    </div>
-  );
-}
-
-export default App;
+export default App
