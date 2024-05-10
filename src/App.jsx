@@ -1,26 +1,25 @@
 import React from "react";
 
-function MyElem(props) {
-  console.log(props);
-
-  const { name, age } = props;
-  console.log(name);
-  console.log(age);
-
-  return <div></div>;
+function MyComp({ name, age, team = "무소속" }) {
+  return (
+    <div>
+      <ul>
+        <li>이름 : {name}</li>
+        <li>나이 : {age}</li>
+        <li>팀 : {team}</li>
+      </ul>
+    </div>
+  );
 }
 
-function MyComp(props) {
-  return <div></div>;
-}
-
-function MyComp({ city, country, price }) {
-  // props : {city: "seoul", country:"korea", price: 500}
-  console.log("city", city);
-  console.log("country", country);
-  console.log("price", price);
-
-  return <div></div>;
+function App(props) {
+  return (
+    <div>
+      <MyComp name="흥민" age={33} team="토트넘" />
+      <MyComp name="강인" age={22} team="파리" />
+      <MyComp name="길동" age={44} />
+    </div>
+  );
 }
 
 function App(props) {
