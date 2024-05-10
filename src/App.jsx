@@ -2,44 +2,32 @@ import React from "react";
 
 function App(props) {
   const a = {
-    name: "son",
-    age: 33,
-    city: "london",
+    name: "John",
+    age: 44,
+    address: {
+      street: "Lorem Ipsum",
+      city: "seoul",
+    },
   };
 
-  const b = a; // a 와 b 는 같은 객체를 참조
-  b.age = 44;
-  console.log(a.age); // 44
-  console.log(b.age); // 44
+  // 얕은 복사 (shallow copy)
+  const { ...b } = a;
+  b.age = 55;
+  console.log("b.age", b.age); // 55
+  console.log("a.age", a.age); // 44
 
-  const c = {
-    name: a.name,
-    age: a.age,
-    city: a.city,
-  };
-  c.age = 55;
-  console.log(c.age); // 55
-  console.log(a.age); // 44
+  b.address.city = "busan";
+  console.log("a.address.city", a.address.city); // busan
+  console.log("b.address.city", b.address.city); // busan
 
-  // 나머지 값 복사를 활용하여
-  // const c 처럼 일일히 같은 객체 만들 필요가 없다.
-  const { ...d } = a;
-  d.age = 55;
-  console.log(d.age); // 55
-  console.log(a.age); // 44
-
-  const e = {
-    name: "lee",
-    country: "korea",
-    team: "paris",
-    salary: 700,
-    city: "seoul",
-  };
-  const { ...f } = e;
-
-  e.city = "busan";
-  console.log(e);
-  console.log(f);
+  // 깊은 복사 (deep copy)
+  // 얕은 복사를 여러번 해서 해결
+  const { ...c } = a; // 얕은 복사
+  const { ...address1 } = a.address;
+  c.address = address1;
+  c.address.city = "london";
+  console.log("a.address.city", a.address.city); // busan
+  console.log("c.address.city", c.address.city); // london
 
   return <div></div>;
 }
