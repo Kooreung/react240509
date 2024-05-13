@@ -8,7 +8,7 @@ function App(props) {
     const [...nextList] = list;
     nextList.push(text);
     setList(nextList);
-    setList("");
+    setText("");
   }
 
   return (
