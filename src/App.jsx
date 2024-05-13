@@ -1,13 +1,18 @@
 import React from "react";
-import { v1, v2, v3 } from "./MyComps.jsx";
+import { Badge, Button, ChakraProvider } from "@chakra-ui/react";
 
 function App(props) {
   return (
-    <div>
-      <div>{v1}</div>
-      <div>{v2}</div>
-      <div>{v3}</div>
-    </div>
+    <ChakraProvider>
+      <div>
+        <Button colorScheme={"blue"}>클릭</Button>
+
+        <Button colorScheme={"green"}>
+          알림
+          <Badge>New</Badge>
+        </Button>
+      </div>
+    </ChakraProvider>
   );
 }
 
