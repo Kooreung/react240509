@@ -8,6 +8,12 @@ function App(props) {
     price: "",
   });
 
+  function handleChange(e) {
+    const { ...nextCar } = car;
+    nextCar[e.target.name] = e.target.value;
+    setCar(nextCar);
+  }
+
   const handleModelChange = (e) => {
     return setCar({ ...car, model: e.target.value });
   };
