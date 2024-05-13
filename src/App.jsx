@@ -1,27 +1,32 @@
 import React from "react";
-import { Button, ChakraProvider } from "@chakra-ui/react";
+
+function MyComp({ name, age, children }) {
+  console.log("name", name);
+  console.log("age", age);
+  console.log("children", children);
+  return (
+    <div>
+      <div>name : {name}</div>
+      <div>age : {age}</div>
+      <div>childrend : {children}</div>
+    </div>
+  );
+}
 
 function App(props) {
   return (
-    <ChakraProvider>
-      <div>
-        <Button colorScheme={"blue"} style={{ marginRight: "1rem" }}>
-          확인
-        </Button>
-        <Button colorScheme={"red"}>취소</Button>
-        <Button
-          sx={{
-            color: "skyblue",
-            marginLeft: "1rem",
-            fontSize: "2rem",
-            padding: "2rem",
-          }}
-          colorScheme={"gray"}
-        >
-          정정
-        </Button>
-      </div>
-    </ChakraProvider>
+    <div>
+      <MyComp name={"son"} age={33}>
+        {/* content는 children prop */}
+        <p>Lorem ipsum dolor.</p>
+      </MyComp>
+      <MyComp name={"lee"} age={22}>
+        <ul>
+          <li>Lorem.</li>
+          <li>Recusandae.</li>
+        </ul>
+      </MyComp>
+    </div>
   );
 }
 
