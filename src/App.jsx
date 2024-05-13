@@ -4,23 +4,12 @@ function App(props) {
   const [car, setCar] = useState({
     name: "",
     model: "",
+    price: 0,
     company: "",
-    price: "",
   });
-
   function handleChange(e) {
     const { ...nextCar } = car;
     nextCar[e.target.name] = e.target.value;
-    setCar(nextCar);
-  }
-
-  const handleModelChange = (e) => {
-    return setCar({ ...car, model: e.target.value });
-  };
-
-  function handlePriceChange(e) {
-    const { ...nextCar } = car;
-    nextCar.price = e.target.value;
     setCar(nextCar);
   }
 
@@ -30,28 +19,35 @@ function App(props) {
         <input
           type="text"
           placeholder={"이름"}
-          onChange={(e) => {
-            setCar({ ...car, name: e.target.value });
-          }}
+          name={"name"}
+          onChange={handleChange}
         />
       </div>
       <div>
-        <input type="text" placeholder={"모델"} onChange={handleModelChange} />
+        <input
+          type="text"
+          placeholder={"모델"}
+          name={"model"}
+          onChange={handleChange}
+        />
       </div>
       <div>
         <input
           type="text"
           placeholder={"회사"}
-          onChange={(e) => {
-            const { ...nextCar } = car;
-            nextCar.company = e.target.value;
-            setCar(nextCar);
-          }}
+          name={"company"}
+          onChange={handleChange}
         />
       </div>
       <div>
-        <input type="text" placeholder={"가격"} onChange={handlePriceChange} />
+        <input
+          type="number"
+          placeholder={"가격"}
+          name={"price"}
+          onChange={handleChange}
+        />
       </div>
+
       <ul>
         <li>이름 : {car.name}</li>
         <li>모델 : {car.model}</li>
