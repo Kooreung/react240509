@@ -1,14 +1,29 @@
 import React, { useState } from "react";
 
 function App(props) {
+  const [list, setList] = useState([]);
   const [text, setText] = useState("");
 
-  const isTooLong = text.length > 10;
+  function handleClick() {
+    const [...nextList] = list;
+    nextList.push(text);
+    setList(nextList);
+    setList("");
+  }
+
   return (
     <div>
-      <input type="text" onChange={(e) => setText(e.target.value)} />
-      <p>{text}</p>
-      {isTooLong && <p>10 자 이상 입력할 수 없습니다.</p>}
+      <input
+        value={text}
+        type="text"
+        onChange={(e) => setText(e.target.value)}
+      />
+      <button onClick={handleClick}>추가</button>
+      <ul>
+        {list.map((item) => (
+          <li>{item}</li>
+        ))}
+      </ul>
     </div>
   );
 }
