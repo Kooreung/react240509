@@ -1,14 +1,34 @@
 import React, { useState } from "react";
 
 function MyComp() {
-  const [val, setVal] = useState(0);
-  console.log("다시 그려짐");
+  const [val, setVal] = useState({ name: "son" });
+
+  function updateVal() {
+    val.name = "lee";
+    setVal(val);
+  }
+
   return (
     <div>
-      <button onClick={() => setVal(val + 1)}>클릭 {val}</button>
-      {/* react 가 이전 상태와 비교하는데,
-    이전과 상태가 같다면 업데이트가 되지 않는다.
-    setVal 값을 0 으로 두면 이전값도 0으로, 업데이트가 되지 않는다. */}
+      {val.name}
+      <button onClick={updateVal}>click</button>
+    </div>
+  );
+}
+
+function MyComp2() {
+  const [val, setVal] = useState({ name: "son" });
+  function updateVal() {
+    // 객체를 복사해서 새 객체를 만들어 써야 한다.
+    const { ...newVal } = val;
+    // 얕은 복사이므로 깊은 복사도 고려해야 한다.
+    newVal.name = "lee";
+    setVal(newVal);
+  }
+  return (
+    <div>
+      {val.name}
+      <button onClick={updateVal}>click</button>
     </div>
   );
 }
@@ -17,6 +37,7 @@ function App(props) {
   return (
     <div>
       <MyComp />
+      <MyComp2 />
     </div>
   );
 }
