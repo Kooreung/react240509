@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 
 function App(props) {
   const [text, setText] = useState("");
@@ -14,8 +14,5 @@ function App(props) {
     </div>
   );
 }
-
-export default App;
-
 
 export default App;
