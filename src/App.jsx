@@ -3,7 +3,7 @@ import React, { useState } from "react";
 function MyButton({ count, onClick }) {
   return (
     <div>
-      <button onClick={onClick}>버튼 {count}</button>
+      <button onClick={onClick}>Click {count}</button>
     </div>
   );
 }
