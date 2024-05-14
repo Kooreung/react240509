@@ -21,7 +21,7 @@ function App(props) {
       <input
         type="checkbox"
         checked={view1}
-        onClick={(e) => setView1(e.target.checked)}
+        onChange={(e) => setView1(e.target.checked)}
       />
       {/* 각각 state 는 따로 작동 */}
       {view1 && <MyComp color={"blue"} />}
@@ -29,7 +29,7 @@ function App(props) {
       <input
         type="checkbox"
         checked={view2}
-        onClick={(e) => setView2(e.target.checked)}
+        onChange={(e) => setView2(e.target.checked)}
       />
       {view2 && <MyComp color={"red"} />}
     </div>
