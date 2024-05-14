@@ -1,15 +1,20 @@
-import React, { useState } from "react";
+import React, { createContext, useContext, useState } from "react";
 
-function MyBox({ message }) {
+// step1 : Create the Context
+const MessageContext = createContext("");
+
+function MyBox() {
+  // step2 : Use the Context
+  const message = useContext(MessageContext);
   return <div>{message}</div>;
 }
 
-function MySection({ message }) {
-  return <MyBox message={message} />;
+function MySection() {
+  return <MyBox />;
 }
 
-function MyContainer({ message }) {
-  return <MySection message={message} />;
+function MyContainer() {
+  return <MySection />;
 }
 
 function App(props) {
@@ -18,7 +23,11 @@ function App(props) {
     <div>
       <input type="text" onChange={(e) => setMessage(e.target.value)} />
       <p>{message}</p>
-      <MyContainer message={message} />
+      <hr />
+      {/* step3 : Provide the Context */}
+      <MessageContext.Provider value={message}>
+        <MyContainer />
+      </MessageContext.Provider>
     </div>
   );
 }
