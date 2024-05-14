@@ -1,19 +1,38 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
+import axios from "axios";
 
 function App(props) {
-  const [count, setCount] = useState(0);
-  useEffect(() => {
-    console.log("mount 될 때");
-  }, []);
+  function handleClick1() {
+    axios.get("/path1");
+  }
 
-  useEffect(() => {
-    console.log("count 가 변경 될 때");
-    // 해당 param 에서 dependency 가 변경되지 않아야 한다.
-  }, [count]);
+  function handleClick2() {
+    const qs = "city=seoul&address=good";
+    axios.get("/path2?" + qs);
+  }
+
+  function handleClick3() {
+    const qs = new URLSearchParams();
+    qs.append("name", "김답답");
+    qs.append("age", "33");
+    axios.get("/path3?" + qs.toString());
+  }
 
   return (
     <div>
-      <button onClick={() => setCount(count + 1)}>Click</button>
+      <div>
+        <button onClick={handleClick1}>/path1 get 요청</button>
+      </div>
+      <div>
+        <button onClick={handleClick2}>
+          /path2 get 요청, city, address 요청 parameter 첨부
+        </button>
+      </div>
+      <div>
+        <button onClick={handleClick3}>
+          /path3 get 요청, name, age 요청 parameter 첨부
+        </button>
+      </div>
     </div>
   );
 }
