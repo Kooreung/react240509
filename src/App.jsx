@@ -21,12 +21,38 @@ function MyComp() {
     console.log("첫 렌더링 실행때만 실행");
   }, []);
 
+  // 1번 파라미터 return 은 unmount 될 때 실행
+  useEffect(() => {
+    return () => {
+      console.log("언마운트 될 때 실행 되는 메소드");
+    };
+  }, []);
+
+  const [text1, setText1] = useState("");
+  const [text2, setText2] = useState("");
+
+  useEffect(() => {
+    console.log("dependency text1가 바뀔 때");
+  }, [text1]);
+  useEffect(() => {
+    console.log("dependency text2가 바뀔 때");
+  }, [text2]);
+  useEffect(() => {
+    console.log("text1 또는 text2가 바뀔 때");
+  }, [text1, text2]);
+
   const [count, setCount] = useState(0);
 
   return (
     <div>
       hello comp
       <button onClick={() => setCount(count + 1)}>CLICK</button>
+      <div>
+        <input type="text" onChange={(e) => setText1(e.target.value)} />
+      </div>
+      <div>
+        <input type="text" onChange={(e) => setText2(e.target.value)} />
+      </div>
     </div>
   );
 }
