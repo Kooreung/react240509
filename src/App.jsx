@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 
-function MyBox() {
-  const [count, setCount] = useState(0);
-
+function MyBox({ count, setCount }) {
   return (
     <div style={{ width: "100%", border: "1px solid gray" }}>
       <button onClick={() => setCount(count + 1)}>버튼</button>
@@ -13,6 +11,7 @@ function MyBox() {
 
 function App(props) {
   const [view, setView] = useState(true);
+  const [count, setCount] = useState(0);
 
   return (
     <div>
@@ -21,7 +20,7 @@ function App(props) {
         checked={view}
         onChange={(e) => setView(e.target.checked)}
       />
-      {view && <MyBox />}
+      {view && <MyBox count={count} setCount={setCount} />}
     </div>
   );
 }
