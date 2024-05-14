@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 
-function MyComp() {
+function MyComp({ color }) {
   const [count, setCount] = useState(0);
 
   return (
-    <div>
+    <div style={{ border: `1px solid ${color}` }}>
       <div>{count}</div>
       <div>
         <button onClick={() => setCount(count + 1)}>UP</button>
@@ -14,12 +14,24 @@ function MyComp() {
 }
 
 function App(props) {
+  const [view1, setView1] = useState(true);
+  const [view2, setView2] = useState(true);
   return (
     <div>
+      <input
+        type="checkbox"
+        checked={view1}
+        onClick={(e) => setView1(e.target.checked)}
+      />
       {/* 각각 state 는 따로 작동 */}
-      <MyComp />
+      {view1 && <MyComp color={"blue"} />}
       <hr />
-      <MyComp />
+      <input
+        type="checkbox"
+        checked={view2}
+        onClick={(e) => setView2(e.target.checked)}
+      />
+      {view2 && <MyComp color={"red"} />}
     </div>
   );
 }
