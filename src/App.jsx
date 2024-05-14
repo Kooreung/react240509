@@ -15,7 +15,7 @@ function App(props) {
     const qs = new URLSearchParams();
     qs.append("name", "김답답");
     qs.append("age", "33");
-    axios.get("/path3?" + qs.toString());
+    axios.get(`/path3?${qs.toString()}`);
   }
 
   return (
