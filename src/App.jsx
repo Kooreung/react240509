@@ -1,38 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import axios from "axios";
 
 function App(props) {
-  function handleClick() {
-    console.log("버튼 클릭");
-    // get request
-    // 첫 Parameter : 요청 경로
-    axios.get("/someURL");
-  }
+  const [customerId, setCustomerId] = useState("");
+  const [customerName, setCustomerName] = useState("");
 
-  function handleClick2() {
-    const qs = "name=son&age=33";
-    axios.get("/someURL2?" + qs);
-  }
-
-  function handleClick3() {
-    const qs = new URLSearchParams();
-    qs.append("name", "흥민");
-    qs.append("age", "33");
-    qs.append("country", "한국");
-    axios.get("/someURL3?" + qs.toString());
+  function handleSearchClick() {
+    // 버튼 클릭 시 요청 내용
+    // /api/customer?id=3 ... 로 요청
+    axios
+      .get(`/api/customer?id=${customerId}`)
+      .then((response) => response.data)
+      .then((data) => setCustomerName(data));
   }
 
   return (
     <div>
       <div>
-        <button onClick={handleClick}>Get 요청</button>
+        <input type="number" onChange={(e) => setCustomerId(e.target.value)} />
+        <button onClick={handleSearchClick}>조회</button>
       </div>
-      <div>
-        <button onClick={handleClick2}>Get 요청 with QueryString</button>
-      </div>
-      <div>
-        <button onClick={handleClick3}>Get 요청 with QueryString</button>
-      </div>
+      <div>이름 : {customerName}</div>
     </div>
   );
 }
