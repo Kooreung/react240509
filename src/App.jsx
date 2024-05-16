@@ -2,37 +2,47 @@ import React from "react";
 import axios from "axios";
 
 function App(props) {
-  function handleClick200() {
-    axios.get("/api/main43/sub1").then((response) => console.log("200응답"));
+  function handle200() {
+    axios.get("/api/main43/sub1").then((res) => {
+      console.log(res);
+    });
   }
 
-  function handleClick400() {
+  function handle400() {
     axios
       .get("/api/main43/sub2")
-      .then((response) => console.log("400응답"))
-      .catch(() => console.log("catch 의 Method, 400 응답 시"));
+      .then((res) => {})
+      .catch((err) => {
+        if (err.response.status === 400) {
+          console.log("잘못 된 요청");
+        } else if (err.response.status === 404) {
+          console.log("존재하지 않는 요청");
+        } else if (err.response.status === 500) {
+          console.log("서버에서 오류가 발생");
+        }
+      });
   }
 
-  function handleClick404() {
-    axios
-      .get("/api/main43/sub404")
-      .then((response) => console.log("404응답"))
-      .catch(() => console.log("catch 의 Method, 404 응답 시"));
-  }
-
-  function handleClick500() {
+  function handle500() {
     axios
       .get("/api/main43/sub500")
-      .then((response) => console.log("500번 응답 시"))
-      .catch(() => console.log("catch Method , 500 응답 시"));
+      .then((res) => {})
+      .catch((err) => {
+        if (err.response.status === 400) {
+          console.log("잘못 된 요청");
+        } else if (err.response.status === 404) {
+          console.log("존재하지 않는 요청");
+        } else if (err.response.status === 500) {
+          console.log("서버에서 오류가 발생");
+        }
+      });
   }
 
   return (
     <div>
-      <button onClick={handleClick200}>200 응답</button>
-      <button onClick={handleClick400}>400 응답</button>
-      <button onClick={handleClick404}>404 응답</button>
-      <button onClick={handleClick500}>500 응답</button>
+      <button onClick={handle200}>200 응답</button>
+      <button onClick={handle400}>400 응답</button>
+      <button onClick={handle500}>500 응답</button>
     </div>
   );
 }
