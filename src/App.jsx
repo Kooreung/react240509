@@ -26,10 +26,28 @@ function App(props) {
     });
   }
 
+  function handleClick3() {
+    const data = {
+      name: "김답답",
+      age: 34,
+      married: false,
+      info: {
+        nickName: "다비",
+        use: 315,
+      },
+      foods: ["burger", "cola"],
+    };
+
+    axios.post("/api/main41/sub7", data);
+  }
+
   return (
     <div>
       <button onClick={handleClick1}>json 데이터와 요청</button>
+      <br />
       <button onClick={handleClick2}>json 데이터와 요청</button>
+      <br />
+      <button onClick={handleClick3}>JSON 데이터와 요청</button>
     </div>
   );
 }
