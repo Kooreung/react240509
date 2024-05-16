@@ -1,53 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import axios from "axios";
 
 function App(props) {
-  // json 데이터 타입 6가지
+  const [result, setResult] = useState("");
 
   function handleClick1() {
-    const data = {
-      name: "son",
-      age: 33,
-      married: false,
-      team: {
-        location: "london",
-        name: "토트넘",
-      },
-      item: ["shirt", "pants", "shoes", "phone"],
-      address: null,
-    };
-    axios.post("/api/main41/sub5", data);
+    axios.get("/api/main42/sub1").then((param) => console.log(param.data));
   }
+  // 리턴하는 객체를 then method 로 받으면 된다.
+  // then 은 파라미터를 함수로 받는다.
+  // 애로우 펑션이나, 익명 함수나 이름 함수나 쓰면 됨
+  // Axios API - Response Schema 확인 필요
 
   function handleClick2() {
-    axios.post("/api/main41/sub6", {
-      name: "son",
-      age: 33,
-    });
-  }
-
-  function handleClick3() {
-    const data = {
-      name: "김답답",
-      age: 34,
-      married: false,
-      info: {
-        nickName: "다비",
-        use: 315,
-      },
-      foods: ["burger", "cola"],
-    };
-
-    axios.post("/api/main41/sub7", data);
+    axios.get("/api/main42/sub2").then((param) => setResult(param.data));
   }
 
   return (
     <div>
-      <button onClick={handleClick1}>json 데이터와 요청</button>
+      <button onClick={handleClick1}>응답 받기</button>
       <br />
-      <button onClick={handleClick2}>json 데이터와 요청</button>
+      {/* 버튼이 클릭되면 main42/sub2 get 요청 후 응답 본문을 콘솔에 출력 */}
+      <button onClick={handleClick2}>응답 받기</button>
       <br />
-      <button onClick={handleClick3}>JSON 데이터와 요청</button>
+      <div>{result}</div>
     </div>
   );
 }
