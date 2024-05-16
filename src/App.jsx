@@ -45,7 +45,7 @@ function App(props) {
     params.append("email", "email@mail.com");
     params.append("birthDate", "2000-01-01");
 
-    axios.get(`/api/someurl4?${params})`);
+    axios.get(`/api/someurl4?${params}`);
   }
 
   function handleClickButton8() {
@@ -53,7 +53,7 @@ function App(props) {
     params.append("foods", "pizza");
     params.append("foods", "burger");
     params.append("foods", "chicken");
-    params.append("items", "spoon");
+    params.append("item", "spoon");
 
     axios.post("/api/someurl4", params);
   }
