@@ -1,22 +1,23 @@
 import React from "react";
+import axios from "axios";
 
 function App(props) {
-  // Json
-  // JavaScript 객체 작성법을 빌린 Text(문자열) 형식의 데이터
+  function handleClick1() {
+    const obj1 = { name: "son", age: 34 };
+    // axios 를 사용할 때 별도 직렬화를 해주지 않아도 된다.
+    // axios post 에서 두 번째 파라미터가 객체라면 자동으로 직렬화를 해준다.
+    // const json1 = JSON.stringify(obj);
 
-  // 직렬화 예
-  const obj1 = { name: "son", age: 33 };
-  // 수동으로 직렬화를 진행 했을 때 다음과 같다.
-  const json1 = `{ "name": "son", "age" : 33 "}`;
+    // get 은 json 데이터를 붙여서 사용 못한다.
+    // post 를 활용해야 한다.
+    axios.post("/api/main41/sub1", obj1);
+  }
 
-  const obj2 = { name: "son", age: 33 };
-  // 자동으로 직렬화를 진행해주는 Method (문자열이 되었다.)
-  const json2 = JSON.stringify(obj2);
-
-  console.log(obj2);
-  console.log(json2);
-
-  return <div></div>;
+  return (
+    <div>
+      <button onClick={handleClick1}>요청 (JSON 데이터 포함)</button>
+    </div>
+  );
 }
 
 export default App;
