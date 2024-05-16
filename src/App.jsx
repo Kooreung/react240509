@@ -13,12 +13,49 @@ function App(props) {
     axios.post("/api/someurl");
   }
 
-  function handleClickButton11() {
+  function handleClickButton3() {
     axios.get("/api/someurl2");
   }
 
-  function handleClickButton22() {
+  function handleClickButton4() {
     axios.post("/api/someurl2");
+  }
+
+  function handleClickButton5() {
+    const params = new URLSearchParams();
+    params.append("id", 3);
+    params.append("name", "son");
+    params.append("email", "email@mail.com");
+    axios.get(`/api/someurl3?${params}`);
+  }
+
+  function handleClickButton6() {
+    const params = new URLSearchParams();
+    params.append("id", 5);
+    params.append("city", "서울");
+    params.append("country", "한국");
+
+    axios.post("/api/someurl3", params);
+  }
+
+  function handleClickButton7() {
+    const params = new URLSearchParams();
+    params.append("id", 7);
+    params.append("name", "김답답");
+    params.append("email", "email@mail.com");
+    params.append("birthDate", "2000-01-01");
+
+    axios.get(`/api/someurl4?${params})`);
+  }
+
+  function handleClickButton8() {
+    const params = new URLSearchParams();
+    params.append("foods", "pizza");
+    params.append("foods", "burger");
+    params.append("foods", "chicken");
+    params.append("items", "spoon");
+
+    axios.post("/api/someurl4", params);
   }
 
   return (
@@ -28,8 +65,20 @@ function App(props) {
         <button onClick={handleClickButton2}>post 요청</button>
       </div>
       <div>
-        <button onClick={handleClickButton11}>get 요청2</button>
-        <button onClick={handleClickButton22}>post 요청2</button>
+        <button onClick={handleClickButton3}>get 요청2</button>
+        <button onClick={handleClickButton4}>post 요청2</button>
+        <div>
+          <button onClick={handleClickButton5}>
+            get 요청 with query String
+          </button>
+          <button onClick={handleClickButton6}>
+            post 요청 with query String
+          </button>
+        </div>
+      </div>
+      <div>
+        <button onClick={handleClickButton7}>get 요청 처리 버튼</button>
+        <button onClick={handleClickButton8}>post 요청 처리 버튼</button>
       </div>
     </div>
   );
