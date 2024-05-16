@@ -49,8 +49,8 @@ function App(props) {
       path = "/api/main43/sub403";
     }
     axios
-      .get("path")
-      .then((res) => {
+      .get(path)
+      .then(() => {
         console.log("200번 실행");
       })
       .catch((err) => {
