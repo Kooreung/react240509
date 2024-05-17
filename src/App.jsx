@@ -21,14 +21,19 @@ function NavBar() {
       <div
         style={{
           backgroundColor: "gray",
-          fontSize: "2rem",
+          fontSize: "1.5rem",
           display: "flex",
           alignItems: "center",
           flexDirection: "column",
-          justifyContent: "space-evenly",
+          justifyContent: "center",
           marginBottom: "2rem",
+          width: "10rem",
+          height: "15rem",
         }}
       >
+        <div>
+          <Link to="/react">home</Link>
+        </div>
         <div>
           <Link to="/react/doc">doc</Link>
         </div>
@@ -51,6 +56,7 @@ const router = createBrowserRouter([
     path: "react",
     element: <NavBar />,
     children: [
+      { index: true, element: <div>react home</div> },
       { path: "doc", element: <div>react doc</div> },
       { path: "tutorial", element: <div>react tutorial</div> },
       { path: "sample", element: <div>react sample</div> },
