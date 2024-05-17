@@ -46,6 +46,11 @@ function App(props) {
   function handleAccessManager() {
     axios
       .get("/api/main44/manager", {
+        // HTTP 요청 header 를 설정함
+        // Authorization 헤더는 인증 정보를 전달하기 위한 사용
+        // Bearer 는 토큰 기반 인증을 의미, 이 후 실제 토큰 값을 호출
+        // ${localStorage~~} 는 Local Storage 에 있는 token 키에 저장 된 값을 가져오는 코드
+        // 즉, 토큰 값을 헤더에 포함시키는 역할
         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       })
       .then((res) => alert(res.data));
