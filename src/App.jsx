@@ -19,6 +19,14 @@ function App(props) {
         { path: "edit", element: <div>게시물 수정하기</div> },
       ],
     },
+    {
+      path: "/spring",
+      children: [
+        { path: "framework", element: <div>스프링 프레임워크</div> },
+        { path: "doc", element: <div>스프링 설명</div> },
+        { path: "learn", element: <div>스프링 배우기</div> },
+      ],
+    },
   ]);
   // 각 객체는 path 와 element 보유
   return <RouterProvider router={router} />;
