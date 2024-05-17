@@ -12,13 +12,19 @@ import {
 
 function NavBar() {
   return (
-    <div>
+    <div
+      style={{
+        display: "flex",
+        gap: "2rem",
+      }}
+    >
       <div
         style={{
           backgroundColor: "gray",
           fontSize: "2rem",
           display: "flex",
           alignItems: "center",
+          flexDirection: "column",
           justifyContent: "space-evenly",
           marginBottom: "2rem",
         }}
