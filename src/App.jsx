@@ -1,5 +1,10 @@
 import React from "react";
-import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
+import {
+  createBrowserRouter,
+  Link,
+  Outlet,
+  RouterProvider,
+} from "react-router-dom";
 
 function SpringRoot() {
   return (
@@ -7,13 +12,34 @@ function SpringRoot() {
       <div
         style={{
           border: "1px solid black",
-          height: "50px",
-          textAlign: "center",
           marginBottom: "1rem",
+          display: "flex",
+          gap: "5px",
         }}
       >
-        상단 NAVBAR
+        {/*<div>*/}
+        {/*  <a href="/spring/learn">learn</a>*/}
+        {/*</div>*/}
+        {/*<div>*/}
+        {/*  <a href="/spring/api">API</a>*/}
+        {/*</div>*/}
+        {/*<div>*/}
+        {/*  <a href="/spring/doc">doc</a>*/}
+        {/*</div>*/}
+
+        {/* Link to : react-router 쓸 때 쓰는 링크 연결 */}
+        {/* 페이지 전체 새로고침이 아닌 Component 연결 */}
+        <div>
+          <Link to="/spring/learn">learn</Link>
+        </div>
+        <div>
+          <Link to="/spring/api">API</Link>
+        </div>
+        <div>
+          <Link to="/spring/doc">doc</Link>
+        </div>
       </div>
+
       <div>
         <Outlet />
       </div>
