@@ -1,20 +1,37 @@
-import React, { useEffect, useState } from "react";
-import { ChakraProvider, useDisclosure, useToast } from "@chakra-ui/react";
+import React, { useState } from "react";
 
 function App(props) {
-  const toast = useToast();
-  const { isOpen, onClose, onOpen } = useDisclosure();
-  const [count, setCount] = useState();
-  useEffect(() => {}, []);
-  // use... -> 이와 같은 형태의 Method 를 hook 이라고 한다.
-  // hook 은 진행 순서가 남는다.
-  // if / for 등 반복문 내에서 사용하면 안된다.
-  // hook 은 Component 의 최상단에 순서대로 작성하면 안전하게 사용 가능하다.
+  const [text1, setText1] = useState("");
+  const [text2, setText2] = useState("hello world!");
+  const [text3, setText3] = useState("hi world!");
+  const [text4, setText4] = useState("안녕");
+  const [text5, setText5] = useState("올라");
 
   return (
-    <ChakraProvider>
-      <div></div>
-    </ChakraProvider>
+    <div>
+      <div>
+        {/*변경 시 문구*/}
+        <input type="text" onChange={(e) => setText1(e.target.value)} />
+      </div>
+      <div>
+        <input type="text" value={text2} readOnly={true} />
+      </div>
+      <div>
+        <input type="text" defaultValue={text3} />
+      </div>
+      <div>
+        {/*첫 로딩할 때 문구 + 변경 시 문구*/}
+        <input
+          type="text"
+          value={text4}
+          onChange={(e) => setText4(e.target.value)}
+        />
+      </div>
+      <div>
+        {/*변경해도 소용 없다*/}
+        <input type="text" value={text5} />
+      </div>
+    </div>
   );
 }
 
