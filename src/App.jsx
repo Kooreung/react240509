@@ -5,17 +5,11 @@ function App(props) {
   return (
     <ChakraProvider>
       <div>
-        <Box m={1} bgColor={"tomato"}>
+        <Box bgColor={"tomato"} w={"500px"}>
           Lorem ipsum dolor.
         </Box>
-        <Box m={2} bgColor={"tomato"}>
+        <Box bgColor={"yellow.700"} w={{ base: "100%", md: "500px" }}>
           Lorem ipsum dolor.
-        </Box>
-        <Box m={10} bgColor={"tomato"}>
-          Possimus, rem tempore.
-        </Box>
-        <Box m={20} bgColor={"tomato"}>
-          Ex, fugit, odio.
         </Box>
       </div>
     </ChakraProvider>
