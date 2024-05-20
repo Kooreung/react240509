@@ -3,7 +3,14 @@ import axios from "axios";
 
 function App(props) {
   const [name, setName] = useState("");
-  const [file, setFile] = useState(null);
+  const [file, setFile] = useState([]);
+  // 여러 파일 선택해야해서 기본값을 배열로 변경
+  // 배열의 file 이름을 받도록 하단에 file.array 생성
+
+  const fileNames = [];
+  for (let i = 0; i < file.length; i++) {
+    fileNames.push(<li>{file.item(i).name}</li>);
+  }
 
   function handleSubmit(e) {
     // 기본 파일 전송 말고 axios 로 전송을 시킨다.
@@ -11,7 +18,7 @@ function App(props) {
     // axios post 말고 postform 을 사용하면
     // conte-type:mulpart... 를 자동으로 세팅해준다.
     e.preventDefault();
-    axios.postForm("/api/main45/sub1", { name, file });
+    axios.postForm("/api/main45/sub2", { name, file });
     console.log("axios 로 파일 전송");
   }
 
@@ -34,15 +41,19 @@ function App(props) {
           onChange={(e) => setName(e.target.value)}
         />
         <br />
-        파일{" "}
+        파일 {/* 여러개의 파일을 선택할 수 있도록 하는 multiple */}
         <input
+          multiple={true}
           type="file"
           name={"file"}
-          onChange={(e) => setFile(e.target.files[0])}
+          onChange={(e) => setFile(e.target.files)}
         />
         <br />
         <input type="submit" />
       </form>
+      <div>
+        <ul>{fileNames}</ul>
+      </div>
     </div>
   );
 }
