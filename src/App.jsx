@@ -1,25 +1,17 @@
 import React from "react";
 
 function App(props) {
-  function handleLinkClick(e) {
-    e.preventDefault();
-    // preventDefault
-    // 원래 click Event 를 가지고 있는 요소에게
-    // (a tag, form tag 등)
-    // 기존 역할은 작동하지 않고
-    // 지정하는 새로운 동작을 하도록 하는 메소드
-    console.log("다른 동작을 진행");
-  }
-
   return (
     <div>
-      <a href="/" onClick={handleLinkClick}>
-        예
-      </a>
-      <hr />
-      <form action="/" onSubmit={handleLinkClick}>
-        <input type="text" />
-        <button>전송</button>
+      {/*file 은 항상 post 방식으로 전송해야 한다.*/}
+      {/*추가로 enctype = multipart/form-data 를 꼭 해야한다.*/}
+      {/*그렇지 않으면 파일명이 url 로 남기만 하고 파일 전송은 안된다.*/}
+      <form action="/" method="POST" enctype="multipart/form-data">
+        이름 <input type="text" name={"name"} />
+        <br />
+        파일 <input type="file" name={"file"} />
+        <br />
+        <input type="submit" />
       </form>
     </div>
   );
