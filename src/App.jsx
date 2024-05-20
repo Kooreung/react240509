@@ -1,23 +1,27 @@
 import React from "react";
-import { Box, Button, ChakraProvider } from "@chakra-ui/react";
 
 function App(props) {
-  function handleButtonClick(e) {
-    // event bubbling 멈추는 Method 사용
-    e.stopPropagation();
-    console.log("Button click");
-  }
-
-  function handleBoxClick() {
-    console.log("Box click");
+  function handleLinkClick(e) {
+    e.preventDefault();
+    // preventDefault
+    // 원래 click Event 를 가지고 있는 요소에게
+    // (a tag, form tag 등)
+    // 기존 역할은 작동하지 않고
+    // 지정하는 새로운 동작을 하도록 하는 메소드
+    console.log("다른 동작을 진행");
   }
 
   return (
-    <ChakraProvider>
-      <Box w={"100px"} h={"100px"} bgColor={"orange"} onClick={handleBoxClick}>
-        <Button onClick={handleButtonClick}>클릭</Button>
-      </Box>
-    </ChakraProvider>
+    <div>
+      <a href="/" onClick={handleLinkClick}>
+        예
+      </a>
+      <hr />
+      <form action="/" onSubmit={handleLinkClick}>
+        <input type="text" />
+        <button>전송</button>
+      </form>
+    </div>
   );
 }
 
