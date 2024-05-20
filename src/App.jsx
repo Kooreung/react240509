@@ -9,6 +9,7 @@ function App(props) {
 
   return (
     <div>
+      {/* onChange 를 사용하지 않으면 변경하여 작성해도 적용되지 않음 */}
       <div>
         {/*변경 시 문구*/}
         <input type="text" onChange={(e) => setText1(e.target.value)} />
